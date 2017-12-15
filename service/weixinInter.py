@@ -20,6 +20,8 @@ class WeixinInterface(object):
     def GET(self):
         # 获取输入参数
         data = web.input()
+        if len(data) == 0:
+            return "hello, this is handle view"
         signature = data.signature
         timestamp = data.timestamp
         nonce = data.nonce
