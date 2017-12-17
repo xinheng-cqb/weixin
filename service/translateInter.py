@@ -29,8 +29,3 @@ class TranslateInterface(WeixinInterface):
             content = xml.find("Content").text
             return self.render.reply_text(from_user, to_user, int(time.time()), self.trans_api.translate(str(content)))
 
-if __name__ == '__main__':
-    t = u'消费记录'
-    print str(t)
-    t = TranslateInterface()
-    print t.trans_api.translate('消费记录')

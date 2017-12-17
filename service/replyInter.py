@@ -28,7 +28,6 @@ class ReplyInterface(WeixinInterface):
             elif msg_content == 'unsubscribe':
                 return self.render.reply_text(from_user, to_user, int(time.time()), "人生若只如初见，铭记都是好印象！！！")
 
-
         if msg_type == 'text':
             content = xml.find("Content").text
             if content == 'help':

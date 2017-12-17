@@ -20,7 +20,7 @@ class YouDaoTranslateAPI(object):
     def translate(self, word_text):
         http_client = None
         try:
-            if type(word_text).__name__ == 'unicode':
+            if isinstance(word_text, unicode):
                 word_text = word_text.encode('utf-8')
             salt = random.randint(1, 65536)
             sign = self.appKey + word_text + str(salt) + self.secretKey
@@ -46,7 +46,6 @@ class YouDaoTranslateAPI(object):
 if __name__ == '__main__':
     str = u'正则表达式编译成对象'
     pattern = re.compile(u'[\u4e00-\u9fa5]+')
-    pattern = re.compile(u"[\u4e00-\u9fa5]+")
     matcher = re.search(pattern, str)
     if matcher:
         print matcher.group()

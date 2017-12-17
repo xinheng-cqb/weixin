@@ -40,9 +40,3 @@ class WeixinInterface(object):
         # 如果是来自微信的请求，则回复echo_str
         if hashcode == signature:
             return echo_str
-
-
-
-
-if __name__ == '__main__':
-    WeixinInterface().GET()
