@@ -6,11 +6,13 @@
 # @introduce:
 
 import web
-from service.translateInter import TranslateInterface
+from service.wei_xin_handle import WeiXinHandle
+from task.mutil_task import MutilTask
 
 urls = (
-'/weixin','TranslateInterface'
+'/weixin','WeiXinHandle'
 )
 if __name__ == '__main__':
+    MutilTask().invoke()
     app = web.application(urls, globals())
     app.run()
