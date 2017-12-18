@@ -75,6 +75,6 @@ class Subscribe(EventMsg):
 
     def reply_text(self):
         if self.event == 'subscribe':  # 关注的时候的欢迎语
-            return '白茶清欢无别事，我在等风也等你~~'
+            return '白茶清欢无别事，我在等风也等你~~ \n >输入help查看我的正确打开方式<'
         elif self.event == 'unsubscribe':
             return '人生若只如初见，铭记都是好印象！！！'

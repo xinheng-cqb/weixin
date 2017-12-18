@@ -52,7 +52,7 @@ class WeiXinHandle(object):
             print 'WeiXin Handle Post web_data is:\n ', web_data  # 后台打日志
             rec_msg = receive.parse_xml(web_data)
             if isinstance(rec_msg, receive.TextMsg):
-                if rec_msg == 'help':
+                if rec_msg.content == 'help':
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
                                               '输入个help看看如何正确的调戏我？')
                 else:
@@ -68,4 +68,4 @@ class WeiXinHandle(object):
             print "暂且不处理"
             return '功能还在开发中'
         except Exception as e:
-            traceback.format_exc()
+            print e
