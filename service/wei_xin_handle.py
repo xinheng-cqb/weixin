@@ -17,15 +17,15 @@ class WeiXinHandle(object):
 
     def __init__(self):
         self.app_root = os.path.dirname(__file__)
-        self.templates_root = os.path.join(app_root, '..', 'templates/')
-        self.render = web.template.render(templates_root)
+        self.templates_root = os.path.join(self.app_root, '..', 'templates/')
+        self.render = web.template.render(self.templates_root)
         pass
 
     def GET(self):
         # 获取输入参数
         web_data = web.input()
         print 'WeiXin Handle Post web_data is:\n ', web_data
-        if web_data.signature is None:
+        if not hasattr(web_data, 'signature'):
             return "hello, this is handle view"
         signature = web_data.signature
         timestamp = web_data.timestamp
