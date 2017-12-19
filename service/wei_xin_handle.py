@@ -24,7 +24,7 @@ class WeiXinHandle(object):
     def GET(self):
         # 获取输入参数
         web_data = web.input()
-        print 'WeiXin Handle Post web_data is:\n ', web_data
+        print '-------- WeiXin Handle Post web_data is:\n ', web_data
         if not hasattr(web_data, 'signature'):
             return "hello, this is handle view"
         signature = web_data.signature

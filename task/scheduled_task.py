@@ -13,4 +13,4 @@ from task.decorator_task import scheduled_task
 @scheduled_task(1.9)
 def init_token():
     Basic().real_get_access_token()
-
+    print '-----The token is ', Basic().get_access_token()
