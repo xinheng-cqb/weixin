@@ -62,7 +62,7 @@ class WeiXinHandle(object):
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
                                                   '已切换到聊天模式 >_<')
                 elif rec_msg.content == 'fy':
-                    RedisFactory().hset(rec_msg.from_user_name, 'lt')
+                    RedisFactory().hset(rec_msg.from_user_name, 'fy')
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
                                                   '已切换到翻译模式 ~~')
 
