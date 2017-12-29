@@ -19,8 +19,11 @@ class StringUtil(object):
         return num
 
     @staticmethod
-    def match_between_sign(text, prefix, suffix, index=0):
+    def match_between_sign(text, prefix, suffix, index=0, suffix_more_char=False):
         pattern = re.compile(prefix + r'([^' + suffix + ']+)')
+        if suffix_more_char:
+            pattern = re.compile(prefix + r'(.*?)' + suffix)
+            index = 0
         match = re.findall(pattern, text)
         if len(match) > 0:
             return match[index]
