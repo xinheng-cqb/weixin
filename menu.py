@@ -6,7 +6,9 @@
 # @introduce:
 
 import urllib
-from basic import Basic
+
+from service.basic import Basic
+
 
 class Menu(object):
     def __init__(self):
