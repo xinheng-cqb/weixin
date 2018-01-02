@@ -56,7 +56,7 @@ class WeiXinHandle(object):
             if isinstance(rec_msg, receive.TextMsg):
                 if rec_msg.content == 'help':
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
-                                                  'lt-->开启聊天模式\nfy-->开启翻译模式\nqt-->查看搞笑趣图\ndz-->查看有趣段子')
+                                                  'lt-->开启聊天模式\nfy-->开启翻译模式\nqt-->查看搞笑趣图(可多次发送)\ndz-->查看有趣段子(可多次发送)')
                 elif rec_msg.content == 'lt':
                     RedisFactory().hset(rec_msg.from_user_name, 'lt')
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),

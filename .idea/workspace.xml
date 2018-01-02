@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d115a292-15cb-45bb-ad5e-8bcc788a5cbd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/city_code.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mainMenu/utilMenu/weather.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/city_code.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/reply_image.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/menu.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainMenu/utilMenu/joke.py" afterPath="$PROJECT_DIR$/mainMenu/utilMenu/joke.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/media.py" afterPath="$PROJECT_DIR$/service/media.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/wei_xin_handle.py" afterPath="$PROJECT_DIR$/service/wei_xin_handle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task/mutil_task.py" afterPath="$PROJECT_DIR$/task/mutil_task.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task/scheduled_task.py" afterPath="$PROJECT_DIR$/task/scheduled_task.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +17,8 @@
       <file leaf-file-name="wei_xin_handle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/service/wei_xin_handle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="70" column="45" lean-forward="true" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+            <state relative-caret-position="255">
+              <caret line="71" column="64" lean-forward="true" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
               <folding>
                 <element signature="e#709#1428#0" expanded="false" />
               </folding>
@@ -475,11 +466,6 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/service/wei_xin_handle.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mainMenu/utilMenu/joke.py</url>
           <line>47</line>
           <option name="timeStamp" value="51" />
@@ -823,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/wei_xin_handle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="70" column="45" lean-forward="true" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+        <state relative-caret-position="255">
+          <caret line="71" column="64" lean-forward="true" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
           <folding>
             <element signature="e#709#1428#0" expanded="false" />
           </folding>
