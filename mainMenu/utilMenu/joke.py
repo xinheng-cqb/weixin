@@ -7,6 +7,10 @@
 import time
 import requests
 import json
+import random
+
+from service.basic import Basic
+from service.media import Media
 from task.decorator_task import singleton
 
 
@@ -19,7 +23,7 @@ class JokeAPI(object):
         self.pic_dict = {}
 
     def acquire_content_list(self, page_count=5):
-        self.content_list.clear()
+        self.content_list=[]
         hash_set = set('')
         current_time_stamp = int(time.time())
         try:
@@ -54,7 +58,8 @@ class JokeAPI(object):
                     if hash_id in hash_set:
                         continue
                     hash_set.add(hash_id)
-                    self.pic_dict[each['url']] = each['content']
+                    media_id = Media().upload_with_url(each['url'])
+                    self.pic_dict[media_id] = each['content']
         except Exception as e:
             print(e)
 
@@ -62,13 +67,19 @@ class JokeAPI(object):
         self.acquire_content_list(page_count)
         self.acquire_pic_dict(page_count)
 
-    def get_content_list(self):
-        return self.content_list
+    def get_content_list_random(self):
+        a, b = random.randint(0, len(self.content_list)), random.randint(0, len(self.content_list))
+        result_list = [self.content_list[a], self.content_list[b]]
+        return result_list
 
-    def get_pic_dict(self):
-        return self.pic_dict
+    def get_pic_dict_random(self):
+        a= random.randint(0, len(self.pic_dict))
+        key_list = self.pic_dict.keys()
+        key_a = key_list[a]
+        return key_a, self.pic_dict.get(key_a)
 
 if __name__ == '__main__':
+    Basic().real_get_access_token()
     JokeAPI().invoke_acquire(1)
-    result = JokeAPI().get_content_list()
+    result = JokeAPI().get_content_list_random()
     print(len(result))

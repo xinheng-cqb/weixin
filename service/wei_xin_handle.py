@@ -10,13 +10,13 @@ import os
 
 from data.redis_factory import RedisFactory
 from mainMenu.utilMenu.chat_robot import ChatRobot
+from mainMenu.utilMenu.joke import JokeAPI
 from mainMenu.utilMenu.translate import YouDaoTranslateAPI
 from service import receive
 import time
 
 
 class WeiXinHandle(object):
-
     def __init__(self):
         self.app_root = os.path.dirname(__file__)
         self.templates_root = os.path.join(self.app_root, '..', 'templates/')
@@ -56,7 +56,7 @@ class WeiXinHandle(object):
             if isinstance(rec_msg, receive.TextMsg):
                 if rec_msg.content == 'help':
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
-                                              'lt-->开启聊天模式\nfy-->开启翻译模式')
+                                                  'lt-->开启聊天模式\nfy-->开启翻译模式\nqt-->查看搞笑趣图\ndz-->查看有趣段子')
                 elif rec_msg.content == 'lt':
                     RedisFactory().hset(rec_msg.from_user_name, 'lt')
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
@@ -65,6 +65,13 @@ class WeiXinHandle(object):
                     RedisFactory().hset(rec_msg.from_user_name, 'fy')
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
                                                   '已切换到翻译模式 ~~')
+                elif rec_msg.content == 'dz':
+                    return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
+                                                  '\n\n'.join(JokeAPI().get_content_list_random()))
+                elif rec_msg.content == 'qt':
+                    key, value = JokeAPI().get_pic_dict_random()
+                    return self.render.reply_image(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
+                                                   value, key)
 
                 if RedisFactory().hget(rec_msg.from_user_name) == 'lt':
                     return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
@@ -78,7 +85,8 @@ class WeiXinHandle(object):
                 return ''
             if isinstance(rec_msg, receive.Subscribe):
                 reply_text = rec_msg.reply_text()
-                return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()), reply_text)
+                return self.render.reply_text(rec_msg.from_user_name, rec_msg.to_user_name, int(time.time()),
+                                              reply_text)
             print("暂且不处理")
             return '功能还在开发中'
         except Exception as e:

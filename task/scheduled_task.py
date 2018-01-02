@@ -17,5 +17,5 @@ def init_token():
 
 @scheduled_task(8)
 def init_joke():
-    JokeAPI().invoke_acquire(1)
+    JokeAPI().invoke_acquire(10)
     print('-----The joke being refresh ------')
